@@ -49,23 +49,6 @@ const getCurrentTime = () => {
     time.textContent = new Date().toLocaleTimeString("en-us", {timeStyle: "short"})
 }
 
-// Get & display quote
-/*const getQuote = async () => {
-    try {
-        const res = await fetch("https://api.quotable.io/random")
-        if ( !res.ok ) {
-            throw Error("<span>Something went wrong when fetching a quote.</span><br />Try refreshing your page.")
-        }
-        const data = await res.json()
-
-        quote.innerHTML += `<q>${data.content}</q><small> - ${data.author}</small>`
-
-    } catch(err) {
-        quote.innerHTML = `<p class="error">${err}</p>`
-    }
-}
-*/
-
 background()
 setInterval(getCurrentTime, 1000)
 getQuote()
