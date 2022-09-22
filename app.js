@@ -17,7 +17,12 @@ const background = async () => {
         const data = await res.json()
         if ( data.error) { throw Error }
 
-        back.innerHTML += `<q>${data.title}</q><small> - ${data.copyright}</small>`
+        if ((data.copyright) == ("undefined")) {
+            back.innerHTML += `<q>${data.title}</q><small>`
+        } else {
+            back.innerHTML += `<q>${data.title}</q><small> - ${data.copyright}</small>`
+        }
+        //back.innerHTML += `<q>${data.title}</q><small> - ${data.copyright}</small>`
         body.style.backgroundImage = `url(${data.url})`
     } catch(err) {
         body.style.backgroundImage = `url(https://apod.nasa.gov/apod/image/2107/neptunetriton_voyager_960.jpg)`
